@@ -3,7 +3,7 @@ from collections import deque
 
 
 def bfs(start:int, n:int, g:dict) -> list:
-    dist = [0] * n
+    dist = [-1] * n
     q = deque([start])
     visited = [0] * n
     visited[start] = 1
