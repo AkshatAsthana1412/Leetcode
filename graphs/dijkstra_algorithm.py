@@ -3,17 +3,32 @@ import math
 from build_graph import UndirectedGraph, DirectedGraph
 
 # NOTE Dijktstra is not applicable for negative weights
-def dijkstra(start:int, graph:dict, n:int):
-    dist = [math.inf]*n
-    q = []
+def dijkstra(start: int, graph: dict, n: int) -> list:
+    """
+    Compute the shortest path distances from the start node to all other nodes
+    in a weighted graph using Dijkstra's algorithm.
+
+    :param start: The source node
+    :param graph: The adjacency list of the graph with weights
+    :param n: The total number of nodes
+    :return: List of shortest distances from start to each node
+    """
+    dist = [math.inf] * n
     dist[start] = 0
-    heapq.heappush(q, (0, start))
-    while q:
-        d, node = heapq.heappop(q)
-        for adj_node, w in graph[node]:
-            if w + d < dist[adj_node]:
-                heapq.heappush(q, (w+d, adj_node))
-                dist[adj_node] = w+d
+    min_heap = [(0, start)]
+
+    while min_heap:
+        current_distance, current_node = heapq.heappop(min_heap)
+        # Not strictly necessary to use a `visited` set here:
+        # With a priority queue-based Dijkstra, we may push a node multiple times,
+        # but only the one with the minimal distance will update the dist array.
+        # Adding a visited set could optimize performance by skipping finalized nodes.
+        for neighbor, weight in graph.get(current_node, []):
+            distance = current_distance + weight
+            if distance < dist[neighbor]:
+                dist[neighbor] = distance
+                heapq.heappush(min_heap, (distance, neighbor))
+
     return dist
 
 if __name__ == '__main__':
