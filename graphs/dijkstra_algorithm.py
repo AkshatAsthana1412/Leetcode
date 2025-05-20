@@ -2,7 +2,9 @@ import heapq
 import math
 from build_graph import UndirectedGraph, DirectedGraph
 
-# NOTE Dijktstra is not applicable for negative weights
+# NOTE Dijktstra is not applicable for negative weights it leads to infinite loop becoz we'll keep on getting higher
+# negative values continuously.
+# NOTE time complexity: O(E*logV)
 def dijkstra(start: int, graph: dict, n: int) -> list:
     """
     Compute the shortest path distances from the start node to all other nodes
