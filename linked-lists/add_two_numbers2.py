@@ -1,5 +1,5 @@
-# Definition for singly-linked list.
 from typing import Optional
+# Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -23,17 +23,19 @@ class Solution:
         dummy = ListNode()
         r3 = dummy
         while r1 or r2:
-            total_sum = 0
+            total_sum = carry
             if r1:
                 total_sum += r1.val
                 r1 = r1.next
             if r2:
                 total_sum += r2.val
                 r2 = r2.next
-            total_sum += carry
+            r3.val = total_sum%10
             carry = total_sum // 10
-            r3.next = ListNode(total_sum%10)
-            r3 = r3.next
+            nxt = ListNode(carry)
+            nxt.next = r3
+            r3 = nxt
         if carry:
-            r3.next = ListNode(1)
-        return reverse_list(dummy.next)
+            return r3
+        else:
+            return r3.next
