@@ -1,3 +1,4 @@
+# COMPLEXITY 2^N
 def subsequence_sum(alist, n, k, i=0, sum = 0, arr = []):
     if i >= n:
         if sum == k:
@@ -25,6 +26,18 @@ def print_one_subsequence(alist, n, k, arr=[], i=0, sum=0):
     return False
 
     
+def get_num_sequences_with_sum(alist, n, k, i=0, sum=0):
+    if i >= n:
+        if sum == k:
+            return 1
+        else:
+            return 0
+    sum += alist[i]
+    l = get_num_sequences_with_sum(alist, n, k, i+1, sum)
+    sum -= alist[i]
+    r = get_num_sequences_with_sum(alist, n, k,
+                                    i+1, sum)
+    return l + r
 
 if __name__ == '__main__':
     l = list(map(int, input("enter the array elements: ").split()))
@@ -32,3 +45,4 @@ if __name__ == '__main__':
     subsequence_sum(l, len(l), k)
     print("Printing any one subsequence matching this condition: ")
     print_one_subsequence(l, len(l), k)
+    print(f"no. of subsequences with given sum: {get_num_sequences_with_sum(l, len(l), k)}")
