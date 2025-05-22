@@ -22,7 +22,9 @@ class Solution:
                 if neighbor not in visited:
                     visited.append(neighbor)
                     q.append(neighbor)
+                    # because first we have to clone the node we've just encountered
                     cp[neighbor] = Node(neighbor.val)
+                # because we have to clone each edge right after we've discovered/cloned the node
                 cp[n].neighbors.append(cp[neighbor])
                 
         return cp[node]
