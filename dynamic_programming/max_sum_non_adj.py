@@ -1,4 +1,6 @@
-# O(2^n) this is pure recursive solution
+# O(2^n) for pure recursive solution
+# O(n) time for memoization and tabulation approach
+# you should check if there are any overlapping subproblems before attempting memoization
 def max_sum_of_non_adjacent(arr, indx, dp):
     if not arr:
         return None
@@ -15,8 +17,18 @@ def max_sum_of_non_adjacent(arr, indx, dp):
     dp[indx] = max(max_sum_with_pick, max_sum_without_pick)
     return dp[indx]
 
+def max_sum_of_non_adjacent_tabulised(arr):
+    n = len(arr)
+    dp = [-1]*n
+    dp[0] = arr[0]
+    dp[1] = max(arr[0], arr[1])
+    for i in range(2, n):
+        dp[i] = max(dp[i-2] + arr[i], dp[i-1])
+    return dp[n-1]
+
 if __name__ == '__main__':
     arr = list(map(int, input("Enter list elements: ").split()))
     n = len(arr)
     dp = [-1]*n
-    print(max_sum_of_non_adjacent(arr, n-1, dp))
+    # print(max_sum_of_non_adjacent(arr, n-1, dp))
+    print(max_sum_of_non_adjacent_tabulised(arr))
