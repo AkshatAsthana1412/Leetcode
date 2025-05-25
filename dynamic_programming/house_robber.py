@@ -14,6 +14,8 @@ def house_robber(houses):
     # similarly, in another function call we can omit the first house and find optimal sum for the remaining array which assumes
     # we may have picked the last house if it is in the optimal solution, but then we don't have to pick the first house which we will
     # not, based on the array picked houses[1:].
+    if len(houses) == 1:
+        return houses[0]
     return max(f(houses[1:]), f(houses[:-1]))
 
 if __name__ == '__main__':
