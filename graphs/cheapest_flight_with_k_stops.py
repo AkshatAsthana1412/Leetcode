@@ -2,6 +2,7 @@ from collections import deque
 import math
 from build_graph import UndirectedGraph
 
+# O(E) where E: no. of edges
 def dijkstra(g, n, k, start, end):
     from collections import deque
     import math
