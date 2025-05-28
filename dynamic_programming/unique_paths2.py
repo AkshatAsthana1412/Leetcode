@@ -1,3 +1,4 @@
+# O(2^m*n)
 # def unique_paths2(i, j, maze):
 #     if i == 0 and j == 0:
 #         return 1
@@ -9,7 +10,7 @@
 #     left = unique_paths2(i, j-1, maze)
 #     return up + left
 
-# tabulation
+# tabulation O(m*n)
 def unique_paths2(m, n, maze):
     dp = [ [-1]*n for _ in range(m) ]
     for i in range(m):
