@@ -14,16 +14,29 @@ import math
 
 # Another solution is to start at the top of the triangle and find
 # the min sum path to any bottom element
-def min_sum(i, j, m, triangle):
+# O(2^m)
+# def min_sum(i, j, m, triangle):
+#     if i == m-1:
+#         return triangle[m-1][j]
+#     down = triangle[i][j] + min_sum(i+1, j, m, triangle)
+#     diag = triangle[i][j] + min_sum(i+1, j+1, m, triangle)
+#     return min(down, diag)
+
+# O(m^2)
+def min_sum(i, j, dp, m, triangle):
     if i == m-1:
         return triangle[m-1][j]
-    down = triangle[i][j] + min_sum(i+1, j, m, triangle)
-    diag = triangle[i][j] + min_sum(i+1, j+1, m, triangle)
-    return min(down, diag)
+    if dp[i][j] != -1:
+        return dp[i][j]
+    down = triangle[i][j] + min_sum(i+1, j, dp, m, triangle)
+    diag = triangle[i][j] + min_sum(i+1, j+1, dp, m, triangle)
+    dp[i][j] = min(down, diag)
+    return dp[i][j]
 
 if __name__ == "__main__":
     m = int(input("Enter size of the triangle: "))
     grid = []
+    dp = [[-1]*m for _ in range(m)]
     for i in range(m):
         row = list(map(int, input(f"Enter row {i+1}: ").split()))
         grid.append(row)
@@ -33,4 +46,4 @@ if __name__ == "__main__":
     #     if res < ans:
     #         ans = res
     #     print(res)
-    print(min_sum(0,0,m,grid))
+    print(min_sum(0,0,dp,m,grid))
