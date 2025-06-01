@@ -1,5 +1,5 @@
 # finding element in a rotated sorted array with duplicates
-# O(log n)
+# O(log n) , worst case: O(n/2)
 def bin_search(target, arr, l, u):
     while l <= u:
         m = (l+u)//2
