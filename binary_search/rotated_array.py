@@ -1,3 +1,4 @@
+# O(log n)
 def bin_search(arr, l, u, target):
     while l <= u:
         m = (l+u)//2
@@ -15,8 +16,11 @@ def rotated_array(target, arr):
         m = (l+u)//2
         if arr[m] == target:
             return m
+        # Identify the sorted half left or right
         if arr[m] <= arr[u]:
+            # check if target lies in this half, if it is sorted
             if arr[m] < target and target <= arr[u]:
+                # do a binary search on this half
                 return bin_search(arr, m, u, target)
             else:
                 u = m-1
