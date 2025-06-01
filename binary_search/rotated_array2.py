@@ -20,7 +20,7 @@ def rotated_array(target, arr):
             return True
         # case when finding the sorted half is not possible, shrink the array in such case
         # arr[m] is anyways not the target
-        if arr[m] == arr[u] and arr[m] == arr[l]:
+        if arr[m] == arr[u] == arr[l]:
             l += 1
             u -= 1
         # otherwise follow the same search process for rotated array
