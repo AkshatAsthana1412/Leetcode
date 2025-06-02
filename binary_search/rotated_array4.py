@@ -1,4 +1,6 @@
 # O(n)
+# number of times array is rotated
+# we just need to find the smallest number in the rotated array, and return it's index
 import math
 def rotated_array(arr):
     l, u = 0, len(arr) - 1
