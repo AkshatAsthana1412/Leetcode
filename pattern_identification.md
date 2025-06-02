@@ -1,63 +1,67 @@
-Keywords to look for in problems to identify the pattern/algo to be used to solve it:
-🔁 Sliding Window
+## Keywords to look for in problems to identify the pattern/algo to be used to solve it: ##
 
-"subarray"
-"contiguous"
-"window of size k"
 
-📍 Two Pointers
+🔁 Sliding Window: 
+`
+subarray, contiguous, window of size k
+`
 
-"sorted array"
-"pair with sum"
-"remove duplicates"
+📍 Two Pointers:
+`
+sorted array, pair with sum, remove duplicates
+`
 
-📦 Dynamic Programming (DP)
+📦 Dynamic Programming (DP):
+`
+maximum/minimum, number of ways, can you reach...?,
+choose or skip, longest/shortest
+`
 
-"maximum/minimum"
-"number of ways"
-"can you reach...?"
-"choose or skip"
-"longest/shortest X"
-
-🌀 Backtracking
-
-"all combinations"
-"generate permutations"
-"valid arrangements"
+🌀 Backtracking:
+`
+"all combinations",
+"generate permutations",
+"valid arrangements",
 "place N queens"
+`
 
-🌳 Tree / Graph (DFS/BFS)
-
-"tree traversal"
-"shortest path"
-"find ancestor"
+🌳 Tree / Graph (DFS/BFS):
+`
+"tree traversal",
+"shortest path",
+"find ancestor",
 "connected nodes"
+`
 
-🔍 Binary Search
-
-"find first/last"
-"minimum possible"
+🔍 Binary Search:
+`
+"find first/last",
+"minimum possible",
 "kth smallest/largest"
+`
 
-🔗 Linked List
-
-"cycle detection"
-"merge lists"
-"reverse list"
+🔗 Linked List:
+`
+"cycle detection",
+"merge lists",
+"reverse list",
 "intersection point"
+`
 
-⚡ Greedy
-
-"maximize/minimize"
-"pick the best"
-"fewest number of..."
-"shortest time"
+⚡ Greedy:
+`
+"maximize/minimize",
+"pick the best",
+"fewest number of...",
+"shortest time",
 "efficient schedule"
+`
 
-📊 Heap / Priority Queue
-
-"top K elements"
-"most frequent"
-"min/max in stream"
-"merge sorted"
+📊 Heap / Priority Queue:
+`
+"top K elements",
+"most frequent",
+"min/max in stream",
+"merge sorted",
 "real-time rank"
+`
