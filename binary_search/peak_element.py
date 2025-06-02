@@ -11,10 +11,13 @@ def peak_element(arr):
     l, u = 1, n-2
     while l <= u:
         m = (l+u)//2
+        # check if this element is a peak
         if arr[m-1] < arr[m] and arr[m] > arr[m+1]:
             return arr[m]
+        # check if we're on the increasing curve, if so, peak is furthur on the right
         elif arr[m] < arr[m+1] and arr[m-1] < arr[m]:
             l = m+1
+        # if not, peak might be on the left half of the curve
         else:
             u = m-1
 
