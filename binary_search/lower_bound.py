@@ -1,3 +1,4 @@
+# find smallest index i such that arr[i] >= target
 def lower_bound(arr, target):
     n = len(arr)
     ans = n

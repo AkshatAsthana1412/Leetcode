@@ -1,6 +1,8 @@
+# Check if the given 'word' exists in the board
+# O(m*n*4^l)
 from typing import List
 class Solution:
-    def search(self, i, j, board, word, visited, p=0):
+    def search(self, i, j, board, word, p=0):
         # if we've reached the end of the word
         if p == len(word):
             return True
@@ -12,10 +14,10 @@ class Solution:
         # mark board[i][j] as visited
         board[i][j] = ''
         # search in adjacent cells
-        found = (self.search(i+1, j, board, word, visited, p+1) or \
-                 self.search(i-1, j, board, word, visited, p+1) or \
-                 self.search(i, j+1, board, word, visited, p+1) or \
-                 self.search(i, j-1, board, word, visited, p+1))
+        found = (self.search(i+1, j, board, word, p+1) or \
+                 self.search(i-1, j, board, word, p+1) or \
+                 self.search(i, j+1, board, word, p+1) or \
+                 self.search(i, j-1, board, word, p+1))
         if found:
             return True
         else:
@@ -29,6 +31,6 @@ class Solution:
         for i in range(len(board)):
             for j in range(len(board[0])):
                 if board[i][j] == word[0]:
-                    ans = self.search(i,j,word,board,set(),0)
+                    ans = self.search(i,j,word,board,0)
                     print(ans)
         return ans
