@@ -1,8 +1,4 @@
-class Node:
-    def __init__(self, data, left=None, right=None):
-        self.data = data
-        self.left = left
-        self.right = right
+from binary_tree import Node
 
 def inorder(root):
     if root:
