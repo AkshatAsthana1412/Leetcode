@@ -19,3 +19,7 @@
 
 	•	“Window” = stateful region — you keep track of what’s inside.
 	•	“Two pointers” = value comparison — you act based on array values, not what’s in between.
+
+## For problems with counting the number of substrings/subarrays of a certain kind
+` for such problems above concepts may have to be used with some tricky modifications,
+e.g. check problem "Number of substrings containing all three characters" `
