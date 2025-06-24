@@ -1,5 +1,6 @@
 from typing import List
 from collections import defaultdict, deque
+# the time needed will be the max time taken along any path for informing employees
 class Solution:
     def numOfMinutes(self, n: int, headID: int, manager: List[int], informTime: List[int]) -> int:
         g = defaultdict(list)
