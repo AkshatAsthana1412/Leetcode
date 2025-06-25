@@ -8,7 +8,7 @@ from collections import defaultdict
 #   prefix_sum[i] % k = prefix_sum[i] % k
 # therefore it makes sense to keep a cache of prefix_sum[q] % k and 
 # count will increase by the number of times the same remainder was seen before.
-
+# SIMILAR PROBLEM: Continuous Subarray Sum
 class Solution:
     def subarraysDivByK(self, nums: List[int], k: int) -> int:
         rem_cache = defaultdict(int)
